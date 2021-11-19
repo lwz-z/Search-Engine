@@ -1,0 +1,27 @@
+from pymongo import MongoClient
+
+client = MongoClient('127.0.0.1', 27017)  # 创建连接点
+db = client['Movie']
+table = db['movie_information']
+
+score = []
+scorepeople = []
+name = []
+allscore = {}
+allscores = []
+
+for i in table.find():
+    score.append(i['score'])
+    scorepeople.append(i['scorepeople'])
+    name.append((i['name']))
+
+score = map(eval, score)
+scorepeople = map(eval, scorepeople)
+
+score = list(score)
+scorepeople = list(scorepeople)
+
+for i in range(len(score)):
+    allscore = score[i] * scorepeople[i]
+    table.update_one({"name": name[i]}, {"$set": {"allscore": allscore}})
+
