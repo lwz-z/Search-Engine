@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>search</title>	
+	<link rel="stylesheet"   href="search.css">		
+</head>
+
+<body >
+
+<div>
+	<img class="s1" src="logo.png">
+</div>
+<div class="container header">
+		<input type="text" placeholder="" class="x"/>
+           
+			<a href="" class="xq1 a_xq1">搜索</a>
+
+		</ul>
+	</div>
+	
+	
+</html>

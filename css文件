@@ -1,0 +1,82 @@
+a,body,div,html,img,li,p,ul,input,img,button
+{
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline
+}
+
+a{
+	text-decoration: none;
+}
+
+ul,li{
+	list-style: none;
+}
+
+input{
+	outline-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.s1{
+	
+	position: absolute;
+	top: 30%;
+	left:40%;
+
+}
+ .container{
+	width: 500px;
+	margin: 0 auto;
+}
+/*导航栏*/
+.header
+{
+	width:30%;
+	height: 40px;
+	position: absolute;
+	top: 40%;
+	left:35%;
+	/*margin-left: -500px;
+	margin-top:5px;*/
+	/*background-color: rgb(0 0 0);*/
+	border-radius: 5px;
+	border:1px solid #41ac52;
+}
+
+.x{
+	line-height: 40px;
+}
+	
+
+
+.xq1 {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	/*padding: 0 5px;*/
+	width: 80px;
+	color: #f8f8f8;
+	text-align: center;
+	/*letter-spacing: 2px;*/
+	border-radius: 5px;
+	
+}
+.a_xq1 {
+	position: absolute;
+	left: 83%;
+	top: 0px;
+	/*bottom: -350px;*/
+	/*margin-left: 200px;*/
+	background: #41ac52;
+}
+
+.xq1:hover {
+	color: #f8f8f8;
+	background: #3da44e;
