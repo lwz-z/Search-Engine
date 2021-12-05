@@ -1,0 +1,29 @@
+import pymongo
+import jieba
+Client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
+db=Client["pymongodb3"]
+collection=db["db"]
+# collection=db["dbfilm"]
+#获取数据库中已经存在的数据
+datas =list(collection.find())
+listall1=[]  #每条电影对应的部分信息的分词
+listall2=[]  #每条电影的部分字段的信息
+for i in datas:    #i是列表中的一条电影信息的字典形式
+    lookData = " "
+    for j in i:
+        if j!="_id" and j!="url":
+            lookData=lookData+str(i[j])
+    listall2.append(lookData)
+    listi=jieba.lcut_for_search(lookData)
+    listall1.append(listi)
+a=input("请输入：")
+alist=jieba.lcut_for_search(a)
+k=-1
+for i in listall1:
+    k=k+1
+    if set(alist).intersection(set(i)):  #如果有交集
+        print(listall2[k])
+        print("############################################################")
+
+
+
