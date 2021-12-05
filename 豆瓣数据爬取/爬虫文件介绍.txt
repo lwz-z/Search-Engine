@@ -1,0 +1,10 @@
+将原本爬虫文件修改，拆包以提高其复用性和功能性
+拆分后文件有main.py;ConnectMongodb.py;FilmNameAndUrl.py;FilmInfo.py;ClearURL.py
+main.py: 用于调用其他文件，简单来说运行此文件即可
+ConnectMongodb.py：包装pymongo，用于与Mongdb数据库进行连接
+FilmNameAndUrl.py：用来爬取豆瓣电影名称和链接
+FilmInfo.py：通过html爬取豆瓣电影相关信息
+ClearURL.py：删除无法访问url或没有url的电影数据, 不建议使用
+SpliteBasicInfo.py：用来拆分电影获取的基本数据，使得数据更加直观
+
+
