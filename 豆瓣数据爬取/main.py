@@ -3,7 +3,6 @@ from selenium import webdriver
 from FilmNameAndUrl import FilmUrl
 from FilmInfo import FileInfo
 from ConnectMongodb import MongodbHandle
-from ClearURL import ClearURL
 from SpliteBasicInfo import spliteBasicInfo
 
 
@@ -20,20 +19,12 @@ if "电影链接" not in db.list_collection_names():
     # 关闭驱动
     driver.quit()
 
-    # 清洗数据
-    # 删除无法访问url或没有url的电影数据（建议不用）
-    num = ClearURL(col)
-    print("有效url数目为" + num)
 
 # 爬虫步骤2.通过html爬取豆瓣电影相关详情
 col_in = db["电影链接"]
 col_out = db["电影信息"]
 
 if col_out.estimated_document_count() < col_in.estimated_document_count():
-
-    # options = webdriver.ChromeOptions()
-    # options.add_argument("--proxy-server=111.231.86.149:7890")
-
     driver = webdriver.Chrome("chromedriver")  # 浏览器驱动
     fileinfo = FileInfo().fileinfo(col_in, col_out, driver)
 
@@ -42,6 +33,14 @@ if col_out.estimated_document_count() < col_in.estimated_document_count():
 
     # 关闭驱动
     driver.quit()
+
+# 将mongodb的id整理
+col2 = db['电影整理后信息']
+contents = col_out.find()
+for index, content in enumerate(contents):
+    num = index + 1
+    content['_id'] = num
+    col2.insert_one(content)
 
 
 # 关闭数据库

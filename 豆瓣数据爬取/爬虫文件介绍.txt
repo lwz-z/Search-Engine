@@ -3,8 +3,9 @@
 main.py: 用于调用其他文件，简单来说运行此文件即可
 ConnectMongodb.py：包装pymongo，用于与Mongdb数据库进行连接
 FilmNameAndUrl.py：用来爬取豆瓣电影名称和链接
-FilmInfo.py：通过html爬取豆瓣电影相关信息
-ClearURL.py：删除无法访问url或没有url的电影数据, 不建议使用
+FilmInfo.py：通过html爬取有效URL的豆瓣电影相关信息
+CheckURL.py：检查URL是否可用
 SpliteBasicInfo.py：用来拆分电影获取的基本数据，使得数据更加直观
+
 
 

@@ -1,4 +1,5 @@
 import time
+from CheckURL import CheckURL
 
 
 class FileInfo(object):
@@ -32,8 +33,12 @@ class FileInfo(object):
         # 去除数据库连接
         del col_in
 
-        kk = 548
-        for baseurl in sosuos[548:]:
+        kk = 0
+        for baseurl in sosuos:
+            # 检查网页资源，如果网页资源不存在
+            if CheckURL(baseurl) == 0:
+                print(f"url:{baseurl} 已失效")
+                continue
             try:
                 js = "window.open('{}','_blank');"
                 driver.execute_script(js.format(baseurl))
